@@ -1,0 +1,31 @@
+{
+  "name": "Blocknotes",
+  "short_name": "Blocknotes",
+  "start_url": "http://localhost:3000",
+  "description": "Blocknotes",
+  "background_color": "#21242c",
+  "theme_color": "#00f2dc",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "https://d3n6sqn01en2u4.cloudfront.net/ineffableco%2Fc892a001-545e-4791-80d4-3dc4bd893d65_coinsapp.png?w=128",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "https://d3n6sqn01en2u4.cloudfront.net/ineffableco%2Fc892a001-545e-4791-80d4-3dc4bd893d65_coinsapp.png?w=192",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://d3n6sqn01en2u4.cloudfront.net/ineffableco%2Fc892a001-545e-4791-80d4-3dc4bd893d65_coinsapp.png?w=256",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "https://d3n6sqn01en2u4.cloudfront.net/ineffableco%2Fc892a001-545e-4791-80d4-3dc4bd893d65_coinsapp.png?w=512",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

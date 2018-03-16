@@ -1,0 +1,104 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  background-color: #270f34;
+  color: white;
+}
+
+.navbar h1 {
+  margin: 0 0;
+  flex-grow: 1;
+}
+
+.navbar p {
+  margin: 0 0;
+}
+
+.navbar button {
+  margin-left: 10px;
+}
+
+.notes {
+  display: block;
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.notes form textarea {
+  display: block;
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  font-size: 20px;
+  border-color: #eee;
+  border-bottom-width: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  box-sizing: border-box;
+}
+
+.notes form textarea:focus {
+  outline: none;
+  border-color: #2C96FF;
+}
+
+.notes form input[type="submit"] {
+  display: block;
+  width: 100%;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: none;
+  background-color: #2C96FF;
+  padding: 10px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.welcome {
+  font-size: 36px;
+  text-align: center;
+}
+.note {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #efefef;
+  border-radius: 6px;
+}
+
+button {
+  border-radius: 6px;
+  border: none;
+  background-color: #2C96FF;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.loader {
+  display: block;
+  width: 51px;
+  height: 51px;
+  margin: 20px auto;
+  border-radius: 50%;
+  background: #efefef;
+  animation: loader 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+@keyframes loader {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
