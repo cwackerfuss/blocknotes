@@ -1,39 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import shortid from 'shortid';
-import {
-  redirectToSignIn,
-  isUserSignedIn,
-  loadUserData,
-  isSignInPending,
-  handlePendingSignIn,
-  signUserOut,
-  putFile,
-  getFile
-} from 'blockstack';
+import * as blockstack from 'blockstack';
 
 export default class App extends Component {
 
   state = { user: {}, signedIn: false, value: '', notes: {}, loading: true }
 
   componentDidMount() {
-    if (isUserSignedIn()) {
+    if (blockstack.isUserSignedIn()) {
       this.getNotes()
-      this.setState({ user: loadUserData().profile, signedIn: true })
-    } else if (isSignInPending()) {
-      handlePendingSignIn().then(() => { window.location = window.location.origin })
+      this.setState({ user: blockstack.loadUserData().profile, signedIn: true })
+    } else if (blockstack.isSignInPending()) {
+      blockstack.handlePendingSignIn().then(() => { window.location = window.location.origin })
     } else {
       this.setState({ signedIn: false })
     }
   }
 
-  signOut = () => signUserOut(window.location.href)
+  signOut = () => blockstack.signUserOut(window.location.href)
 
-  signIn = () => redirectToSignIn()
+  signIn = () => blockstack.redirectToSignIn()
 
   getNotes = () => (
-    getFile('notes.json', { decrypt: true })
+    blockstack.getFile('notes.json', { decrypt: true })
       .then(res => this.setState({ notes: JSON.parse(res), loading: false }))
   )
 
@@ -42,7 +32,7 @@ export default class App extends Component {
       ...this.state.notes,
       [shortid.generate()]: this.state.value
     }
-    putFile('notes.json', JSON.stringify(notes), { encrypt: true })
+    blockstack.putFile('notes.json', JSON.stringify(notes), { encrypt: true })
       .then(() => this.setState({ notes, value: '' }))
     e.preventDefault();
   }
