@@ -10,6 +10,7 @@ export default class App extends Component {
   componentDidMount() {
     if (blockstack.isUserSignedIn()) {
       this.getNotes()
+      console.log(blockstack.loadUserData().profile)
       this.setState({ user: blockstack.loadUserData().profile, signedIn: true })
     } else if (blockstack.isSignInPending()) {
       blockstack.handlePendingSignIn().then(() => { window.location = window.location.origin })
@@ -24,7 +25,7 @@ export default class App extends Component {
 
   getNotes = () => (
     blockstack.getFile('notes.json', { decrypt: true })
-      .then(res => this.setState({ notes: JSON.parse(res), loading: false }))
+      .then(res => this.setState({ notes: JSON.parse(res) || {}, loading: false }))
   )
 
   addNote = e => {
@@ -40,7 +41,7 @@ export default class App extends Component {
   handleChange = ({target: {value}}) => this.setState({value})
 
   render() {
-    const { signedIn, user, value, loading, notes } = this.state;
+    const { signedIn, user, value, loading, notes = {} } = this.state;
 
     return (
       <div>
